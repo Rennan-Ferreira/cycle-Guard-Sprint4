@@ -1,6 +1,9 @@
 import "./globals.css";
 import "../styles/Cabecalho.css";
 import "../styles/Home.css"
+import "../styles/cadastro.css"
+import "../styles/cameraPage.css"
+import "../styles/login.css"
 import { Inter } from "next/font/google";
 import Cabecalho from "@/components/cabecalho/Cabecalho";
 import Rodape from "@/components/rodape/Rodape";

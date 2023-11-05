@@ -139,6 +139,20 @@
     justify-content: space-evenly;
     height: 15vh;
   }
+
+  .botao-vistoria-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+    align-items: center;
+  }
+  
+  .botao-vistoria-home button{
+    width: 30vw;
+    height: 8vh;
+    color: #D7D9D9;
+    background-color: #0A2472;
+  }
   
   .cycle-footer{
     text-align: center;

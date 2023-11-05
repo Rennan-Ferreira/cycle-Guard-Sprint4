@@ -1,0 +1,41 @@
+.titulo-camera {
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+  
+  button {
+    padding: 2% 4%;
+    font-size: 2vw;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2%;
+  }
+  
+  .camera-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgb(166, 225, 250) 0%, rgb(10, 36, 114) 100%);
+    min-height: 100vh;
+  }
+  
+  .deteccao {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .webcam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+  }

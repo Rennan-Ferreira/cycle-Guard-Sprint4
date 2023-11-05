@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&family=Outfit:wght@300;500;800&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+}
+
+.cabecalho{
+  display: flex;
+  justify-content: space-between;
+  background-image: url('/img/img-cabecalho.png');
+  background-size: cover;
+  width: 100vw;
+  height: 60rem;
+}
+
+.logo-cabecalho{
+  margin: 2rem 2rem;
+}
+
+.logo-cabecalho h1{
+  color: #0A2472;
+  font-family: 'Outfit', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.logo-cabecalho p{
+  color: #0A2472;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+span{
+  color: blue;
+}
+
+.nav-links{
+  display: flex;
+  margin: 4rem 0rem;
+  flex-wrap: nowrap;
+  width: 40%;
+}
+
+.nav-links li{
+  text-decoration: none;
+  display: inline;
+  color: #0A2472;
+  font-weight: 300;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+@media(max-width: 1020px){
+  .logo-cabecalho h1{
+    font-size: 2rem;
+  }
+
+  .logo-cabecalho p{
+    font-size: 0.8rem;
+  }
+
+  .nav-links{
+    width: 50%;
+  }
+  
+}
+
+@media(max-width: 850px){
+  .nav-links{
+    display: flex;
+    margin: 4rem 0rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .nav-links li{
+    font-size: 1rem;
+  }
+}

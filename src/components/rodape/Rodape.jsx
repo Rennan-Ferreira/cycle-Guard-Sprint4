@@ -16,7 +16,7 @@ export default function Rodape() {
                 <h5>Atendimento 100% online</h5>
             </div>
         </div>
-        <div className="bloco-azul"></div>
+        <div className="bloco-azul"></div>   
     </footer>
   )
 }

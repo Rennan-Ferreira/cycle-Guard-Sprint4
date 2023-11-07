@@ -1,16 +1,19 @@
 import Image from "next/image";
+import Cabecalho from "@/components/cabecalho/Cabecalho";
+import Rodape from "@/components/rodape/Rodape";
 
 export default function Home() {
   return (
     <>
-                  <section>
+        <Cabecalho/>
+            <section>
                 <h3 className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
 
                 <div className="container-seguros-home">
                     <div className="img-seguros-home">
-                        <img src="/img/img-pedal-essencial.png" alt="seguro essencial"/>
-                        <img src="/img/img-pedal-leve.png" alt="seguro leve" />
-                        <img src="/img/img-pedal-elite.png" alt="seguro elite" />
+                        <Image src="/img/img-pedal-essencial.png" width={272} height={448} alt="seguro essencial"/>
+                        <Image src="/img/img-pedal-leve.png" width={272} height={448} alt="seguro leve" />
+                        <Image src="/img/img-pedal-elite.png" width={272} height={448} alt="seguro elite" />
                     </div>
                     <div className="titulos-seguros-home">
                         <div className="pedal-essencial-home">
@@ -33,6 +36,7 @@ export default function Home() {
                     <p>NÓS SOMOS UMA EMPRESA DEDICADA A SIMPLIFICAR A CONTRATAÇÃO DE SEGURO DE BICICLETA, E ESTAMOS EM PARCERIA COM A PORTO SEGURO. OFERECEMOS UM SISTEMA ÁGIL E EFICIENTE PARA GARANTIR A SEGURANÇA DO MEIO DE TRANSPORTE. NOSSO OBJETIVO É TORNAR O PROCESSO DE CONTRATAÇÃO MAIS ACESSÍVEL E TRANSPARENTE, COM UM ATENDIMENTO PERSONALIZADO. TRABALHAMOS COM OS MELHORES PROFISSIONAIS DO MERCADO PARA OFERECER SOLUÇÕES PERSONALIZADAS. COMBINAMOS INOVAÇÃO E EXCELÊNCIA EM SERVIÇOS PARA PROTEGER SEU PATRIMÔNIO E PROPORCIONAR TRANQUILIDADE AO PEDALAR. CONTE CONOSCO PARA VIVER A LIBERDADE DE PEDALAR COM SEGURANÇA.</p>
                 </div>
             </section>
+        <Rodape/>
     </>
     )
 }

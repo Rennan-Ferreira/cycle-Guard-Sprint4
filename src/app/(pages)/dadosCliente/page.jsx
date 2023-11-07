@@ -1,5 +1,5 @@
-import Link from "next/link";
-
+import Link from 'next/link';
+import styles from '../../../styles/dadosCliente.css';
 export default function DadosCliente() {
   return (
     <div className="cliente-data-form">

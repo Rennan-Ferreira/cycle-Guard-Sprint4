@@ -51,7 +51,7 @@
 }
 
 .cliente-title {
-    color: #0074e4;
+    color: #000000;
     margin: 0;
     padding: 0 30px;
 }
@@ -82,7 +82,17 @@ input[type="text"] {
     border-radius: 5px;
     max-width: 100%;
 }
-
+.button[type="submit"] {
+    background-color: #0a2472;
+    color: #fff;
+    border: none;
+    margin-left: 50px;
+    padding: 10px 90px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
 @media (max-width: 768px) {
     .cliente-form-container {
         width: 100%;

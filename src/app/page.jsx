@@ -7,7 +7,7 @@ export default function Home() {
     <>
     <Cabecalho/>
                   <section>
-                <h3 className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
+                <h3 id="seguros"  className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
 
                 <div className="container-seguros-home">
                     <div className="img-seguros-home">
@@ -31,7 +31,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="sobre-home">
+                <div id="sobre-nos" className="sobre-home">
                     <h1>SOBRE NÓS</h1>
                     <p>NÓS SOMOS UMA EMPRESA DEDICADA A SIMPLIFICAR A CONTRATAÇÃO DE SEGURO DE BICICLETA, E ESTAMOS EM PARCERIA COM A PORTO SEGURO. OFERECEMOS UM SISTEMA ÁGIL E EFICIENTE PARA GARANTIR A SEGURANÇA DO MEIO DE TRANSPORTE. NOSSO OBJETIVO É TORNAR O PROCESSO DE CONTRATAÇÃO MAIS ACESSÍVEL E TRANSPARENTE, COM UM ATENDIMENTO PERSONALIZADO. TRABALHAMOS COM OS MELHORES PROFISSIONAIS DO MERCADO PARA OFERECER SOLUÇÕES PERSONALIZADAS. COMBINAMOS INOVAÇÃO E EXCELÊNCIA EM SERVIÇOS PARA PROTEGER SEU PATRIMÔNIO E PROPORCIONAR TRANQUILIDADE AO PEDALAR. CONTE CONOSCO PARA VIVER A LIBERDADE DE PEDALAR COM SEGURANÇA.</p>
                 </div>

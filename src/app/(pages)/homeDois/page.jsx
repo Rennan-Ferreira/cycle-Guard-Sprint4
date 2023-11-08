@@ -1,15 +1,17 @@
+import Image from 'next/image';
 import Link from "next/link";
 
 export default function HomeDois() {
   return (
+
     <section>
         <h3 className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
 
         <div className="container-seguros-home">
             <div className="img-seguros-home">
-                <img src="/img/img-pedal-essencial.png" alt="seguro essencial"/>
-                <img src="/img/img-pedal-leve.png" alt="seguro leve" />
-                <img src="/img/img-pedal-elite.png" alt="seguro elite" />
+            <Image src="/img/img-pedal-essencial.png" alt="seguro essencial" width={100} height={100} />
+            <Image src="/img/img-pedal-leve.png" alt="seguro leve" width={100} height={100} />
+            <Image src="/img/img-pedal-elite.png" alt="seguro elite" width={100} height={100} />
             </div>
             <div className="titulos-seguros-home">
                 <div className="pedal-essencial-home">

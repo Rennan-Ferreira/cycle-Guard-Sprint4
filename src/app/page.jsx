@@ -1,8 +1,11 @@
+import Cabecalho from "@/components/cabecalho/Cabecalho";
+import Rodape from "@/components/rodape/Rodape";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
+    <Cabecalho/>
                   <section>
                 <h3 className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
 
@@ -33,6 +36,7 @@ export default function Home() {
                     <p>NÓS SOMOS UMA EMPRESA DEDICADA A SIMPLIFICAR A CONTRATAÇÃO DE SEGURO DE BICICLETA, E ESTAMOS EM PARCERIA COM A PORTO SEGURO. OFERECEMOS UM SISTEMA ÁGIL E EFICIENTE PARA GARANTIR A SEGURANÇA DO MEIO DE TRANSPORTE. NOSSO OBJETIVO É TORNAR O PROCESSO DE CONTRATAÇÃO MAIS ACESSÍVEL E TRANSPARENTE, COM UM ATENDIMENTO PERSONALIZADO. TRABALHAMOS COM OS MELHORES PROFISSIONAIS DO MERCADO PARA OFERECER SOLUÇÕES PERSONALIZADAS. COMBINAMOS INOVAÇÃO E EXCELÊNCIA EM SERVIÇOS PARA PROTEGER SEU PATRIMÔNIO E PROPORCIONAR TRANQUILIDADE AO PEDALAR. CONTE CONOSCO PARA VIVER A LIBERDADE DE PEDALAR COM SEGURANÇA.</p>
                 </div>
             </section>
+            <Rodape/>
     </>
     )
 }

@@ -16,7 +16,8 @@ body{
   justify-content: space-between;
   background-image: url('/img/img-cabecalho.png');
   background-size: cover;
-  width: 100vw;
+  background-position: center;
+  max-width: 100%;
   height: 60rem;
 }
 

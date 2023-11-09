@@ -12,9 +12,9 @@ export default function Cabecalho() {
         <div class="nav-links">
             <nav>
                 <ul>
-                    <li>SEGUROS DISPONÍVEIS</li>
+                    <li><a href="#seguros">SEGUROS DISPONÍVEIS</a></li>
                     <span>  |  </span>
-                    <li>SOBRE NÓS</li>
+                    <li><a href="#sobre-nos">SOBRE NÓS</a></li>
                     <span>  |  </span>
                     <li><Link href="/login">LOGIN</Link></li>
                 </ul>

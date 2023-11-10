@@ -82,7 +82,7 @@ h2 {
     padding: 20px;
     padding-top: 69px;
 }
-button[type="submit"] {
+.botao-cadastrar {
     background-color: #0a2472;
     color: #fff;
     border: none;

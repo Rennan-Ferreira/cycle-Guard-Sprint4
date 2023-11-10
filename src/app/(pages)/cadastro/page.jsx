@@ -1,8 +1,11 @@
 "use client";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
 
 export default function Cadastro() {
+  const navigate = useRouter();
+
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -16,6 +19,7 @@ export default function Cadastro() {
     complemento: '',
     numero: '',
   });
+
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -48,10 +52,11 @@ export default function Cadastro() {
 
       if (apiResponse.ok) {
         console.log('Requisição enviada com sucesso!');
+        navigate.push('/homeDois');
       } else {
         console.error('Erro na chamada da API Java:', apiResponse.statusText);
         console.log('Corpo da resposta:', await apiResponse.text());
-        
+
         try {
           const errorDetails = await apiResponse.json();
           console.error('Detalhes do erro:', errorDetails);
@@ -68,24 +73,23 @@ export default function Cadastro() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     // Remover caracteres não numéricos
     const numericValue = value.replace(/\D/g, '');
-  
+
     // Formatando o CPF com 11 dígitos
     const formattedCPF = numericValue.padStart(11, '0');
-  
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: name === 'cpf' ? parseInt(formattedCPF, 10) : value,
     }));
   };
-  
-  
+
   return (
     <div className="cliente-data-form">
-      <div className="cliente-data-header"> 
-        <Link href='/homeDois'>
+      <div className="cliente-data-header">
+        <Link href="/home">
           <button className="cliente-back-button">&#8592; Voltar</button>
         </Link>
       </div>
@@ -93,7 +97,7 @@ export default function Cadastro() {
       <div className="cliente-form-container">
         <form onSubmit={handleSubmit} className="forms" action="">
           <div className="cliente-title">
-            <h2>PARA CONTINUAR PRECISAMOS CONFIRMAR ALGUNS DADOS, OK?</h2>
+            <h2>INSIRA OS SEUS DADOS PARA REALIZAR O CADASTRO</h2>
           </div>
           <div className="cliente-form-group">
             <label htmlFor="nome">
@@ -141,7 +145,7 @@ export default function Cadastro() {
             <label htmlFor="telefone">
               TELEFONE
               <input
-                type="number"
+                type="tel"
                 id="telefone"
                 name="telefone"
                 placeholder="Telefone"
@@ -249,8 +253,8 @@ export default function Cadastro() {
               />
             </label>
           </div>
-          <div className='div-botao-cadastro'>
-            <button type="submit" disabled={loading} className='cliente-cadastro'>
+          <div className="div-botao-cadastro">
+            <button type="submit" disabled={loading} className="cliente-cadastro">
               {loading ? 'Aguarde...' : 'CADASTRAR'}
             </button>
           </div>

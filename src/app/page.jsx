@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+    const isHome1 = true;
     return (
         <>
-            <Cabecalho />
+         <Cabecalho isHome1={isHome1} />
             <section>
                 <h3 id="seguros" className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
 

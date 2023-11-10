@@ -12,10 +12,14 @@
 
 body {
     display: block;
+    background-color: white;
 }
 a{
     width: 260px;
 }
+span{
+    color: blue;
+  }
 
 input[type="text"],
 input[type="file"] {

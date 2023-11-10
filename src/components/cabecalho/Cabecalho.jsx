@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import styles from '../../styles/Cabecalho.module.css'
 
 export default function Cabecalho({ isHome1, isVistoria }) {
   const linkHref = isHome1 ? "/login" : "/dadosCliente";
@@ -7,14 +8,14 @@ export default function Cabecalho({ isHome1, isVistoria }) {
   const sobreNosText = isVistoria ? "PORTO SEGURO" : "SOBRE NÓS";
 
   return (
-    <header className="cabecalho">
-      <div className="logo-cabecalho">
+    <header className={styles.cabecalho}>
+      <div className={styles.logoCabecalho}>
         <Link href="/">
           <h1>CYCLE GUARD</h1>
           <p>A MELHOR FORMA DE ADQUIRIR SEU SEGURO</p>
         </Link>
       </div>
-      <div className="nav-links">
+      <div className={styles.navLinks}>
         <nav>
           <ul>
             <li>

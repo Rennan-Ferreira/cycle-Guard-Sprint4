@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&family=Outfit:wght@300;500;800&display=swap');
 
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-    background-color: white;
-}
-
 .cabecalho{
   display: flex;
   justify-content: space-between;
@@ -21,11 +11,11 @@ body{
   height: 60rem;
 }
 
-.logo-cabecalho{
+.logoCabecalho{
   margin: 2rem 2rem;
 }
 
-.logo-cabecalho h1{
+.logoCabecalho h1{
   color: #0A2472;
   font-family: 'Outfit', sans-serif;
   font-size: 40px;
@@ -35,7 +25,7 @@ body{
   text-transform: uppercase;
 }
 
-.logo-cabecalho p{
+.logoCabecalho p{
   color: #0A2472;
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
@@ -45,18 +35,14 @@ body{
   text-transform: uppercase;
 }
 
-span{
-  color: blue;
-}
-
-.nav-links{
+.navLinks{
   display: flex;
   margin: 4rem 0rem;
   flex-wrap: nowrap;
   width: 40%;
 }
 
-.nav-links li{
+.navLinks li{
   text-decoration: none;
   display: inline;
   color: #0A2472;
@@ -68,29 +54,29 @@ span{
 }
 
 @media(max-width: 1020px){
-  .logo-cabecalho h1{
+  .logoCabecalho h1{
     font-size: 2rem;
   }
 
-  .logo-cabecalho p{
+  .logoCabecalho p{
     font-size: 0.8rem;
   }
 
-  .nav-links{
+  .navLinks{
     width: 50%;
   }
   
 }
 
 @media(max-width: 850px){
-  .nav-links{
+  .navLinks{
     display: flex;
     margin: 4rem 0rem;
     flex-direction: column;
     flex-wrap: wrap;
   }
 
-  .nav-links li{
+  .navLinks li{
     font-size: 1rem;
   }
 }

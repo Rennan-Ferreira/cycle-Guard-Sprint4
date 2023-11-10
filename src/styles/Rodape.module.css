@@ -1,4 +1,4 @@
-.footer-container {
+.footerContainer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -12,35 +12,35 @@
     text-align: center;
 }
 
-h4 {
+.h4 {
     font-size: 20px;
     font-weight: 600;
     color: #0A2472;
 }
 
-h5 {
+.h5 {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
 }
 
-p {
+.column p {
     font-size: 14px;
     color: #555;
 }
 
-.redes-sociais {
+.redesSociais {
     display: flex;
     padding: 10px 0;
     text-align: center;
     justify-content: center;
 }
 
-.redes-sociais li {
+.redesSociais li {
     margin-right: 10px;
 }
 
-.redes-sociais a {
+.redesSociais a {
     text-decoration: none;
     color: #0A2472;
 }
@@ -59,19 +59,19 @@ p {
     color: #0A2472;
 }
 
-.facebook-icon {
+.facebook {
     color: #1877f2;
 }
 
-.instagram-icon {
+.instagram {
     color: #bc2a8d;
 }
 
-.twitter-icon {
+.twitter {
     color: #1da1f2;
 }
 
-.bloco-azul {
+.blocoAzul {
     background-color: #0A2472;
     height: 25px;
 }

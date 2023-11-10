@@ -1,14 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300&family=Poppins:wght@200;400&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
-}
-
-body {
-    display: block;
-}
 
 .title {
     grid-column: span 2;
@@ -20,7 +10,7 @@ body {
     font-family: 'Outfit', sans-serif;
 }
 
-.bike-data-form {
+.bike {
     background: linear-gradient(180deg, rgb(166, 225, 250) 0%, rgb(10, 36, 114) 100%);
     background-color: rgba(255, 255, 255, 1);
     min-height: 100vh;
@@ -39,7 +29,7 @@ body {
     padding-left: 20px;
 }
 
-.back-button {
+.backButton {
     background-color: rgb(166, 225, 250);
     color: #000000;
     border: none;
@@ -51,7 +41,7 @@ body {
      grid-column: span 2;
 }
 
-form {
+.form {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -64,25 +54,25 @@ form {
     gap: 20px;
 }
 
-h2 {
+.h2 {
     color: #0a2472;
     margin: 0;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form-group {
+.formGroup {
     margin-bottom: 10px;
 }
 
-.form-section {
+.formSection {
     padding: 20px;
 }
-.form-section2 {
+.formSection2 {
     padding: 20px;
     padding-top: 69px;
 }
-.botao-cadastrar {
+.botaoCadastrar {
     background-color: #0a2472;
     color: #fff;
     border: none;
@@ -94,42 +84,18 @@ h2 {
     text-decoration: none;
     
 }
-a{
-    width: 260px;
-}
 
-input[type="text"],
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="file"]::-webkit-file-upload-button {
-    padding: 10px 20px;
-    background-color: #0a2472;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #0a2055;
-}
 
 @media (min-width: 768px) {
-    form {
+    .form {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 600px) {
 
-    input[type="text"],
-    input[type="file"] {
+    .input[type="text"],
+    .input[type="file"] {
         width: 100%;
     }
 }

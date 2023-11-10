@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300&family=Poppins:wght@200;400&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
-}
 
-.cliente-data-form {
+.clienteForm {
     background: linear-gradient(180deg, rgb(166, 225, 250) 0%, rgb(10, 36, 114) 100%);
     background-color: rgba(255, 255, 255, 1);
     min-height: 100vh;
@@ -19,14 +13,14 @@
     padding: 10px;
 }
 
-.cliente-data-header {
+.clienteHeader {
     text-align: left;
     width: 100%;
     padding-left: 10px;
     margin-top: 10px;
 }
 
-.cliente-back-button {
+.clienteButton {
     background-color: rgb(166, 225, 250);
     color: #000000;
     border: none;
@@ -37,7 +31,7 @@
     text-decoration: none;
 }
 
-.cliente-form-container {
+.clienteContainer {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -50,18 +44,18 @@
     align-items: center;
 }
 
-.cliente-title {
+.clienteTitle {
     color: #000000;
     margin: 0;
     padding: 0 30px;
 }
 
-.cliente-form-group {
+.clienteGroup{
     margin-bottom: 5px;
     width: 100%;
 }
 
-.cliente-continue-button {
+.clienteContinue {
     background-color: #0a2472;
     color: #fff;
     border: none;
@@ -74,14 +68,6 @@
     width: 100%;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width: 100%;
-}
 .button[type="submit"] {
     background-color: #0a2472;
     color: #fff;
@@ -94,24 +80,24 @@ input[type="text"] {
     text-decoration: none;
 }
 @media (max-width: 768px) {
-    .cliente-form-container {
+    .clienteContainer {
         width: 100%;
         padding: 10px;
     }
 
-    .cliente-form-group {
+    .clienteGroup {
         margin-bottom: 10px;
     }
 
-    .cliente-continue-button {
+    .cclienteContinue {
         margin-top: 15px;
     }
     
-    .cliente-title {
+    .clienteTitle {
         padding: 0 10px;
     }
 
-    .cliente-back-button {
+    .clienteButton {
         padding: 10px 15px;
     }
 }

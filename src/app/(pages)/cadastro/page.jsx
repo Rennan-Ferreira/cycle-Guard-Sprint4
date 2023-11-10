@@ -89,7 +89,7 @@ export default function Cadastro() {
   return (
     <div className="cliente-data-form">
       <div className="cliente-data-header">
-        <Link href="/home">
+        <Link href="/login">
           <button className="cliente-back-button">&#8592; Voltar</button>
         </Link>
       </div>

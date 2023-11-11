@@ -2,43 +2,43 @@ import Cabecalho from '@/components/cabecalho/Cabecalho';
 import Rodape from '@/components/rodape/Rodape';
 import Image from 'next/image';
 import Link from "next/link";
-
+import styles from '../../../styles/Home.module.css'
 export default function HomeDois() {
     const isVistoria = true;
   return (
 <>
     <Cabecalho isVistoria={isVistoria}/>
     <section>
-        <h3 id="seguros" className="titulo-section-home">SEGUROS PARA SUA BICICLETA</h3>
+        <h3 id="seguros" className={styles.tituloSection}>SEGUROS PARA SUA BICICLETA</h3>
 
-        <div className="container-seguros-home">
-            <div className="img-seguros-home">
+        <div className={styles.containerSeguros}>
+            <div className={styles.imgSeguros}>
             <Image src="/img/img-pedal-essencial.png" alt="seguro essencial" width={100} height={100} />
             <Image src="/img/img-pedal-leve.png" alt="seguro leve" width={100} height={100} />
             <Image src="/img/img-pedal-elite.png" alt="seguro elite" width={100} height={100} />
             </div>
-            <div className="titulos-seguros-home">
-                <div className="pedal-essencial-home">
+            <div className={styles.titulosSeguros}>
+                <div className={styles.pedalEssencial}>
                     <h5>PEDAL ESSENCIAL</h5>
                     <p>SAIBA MAIS</p>
                 </div>
-                <div className="pedal-leve-home">
+                <div className={styles.pedalLeve}>
                     <h5>PEDAL LEVE</h5>
                     <p>SAIBA MAIS</p>
                 </div>
-                <div className="pedal-elite-home">
+                <div className={styles.pedalElite}>
                     <h5>PEDAL ELITE</h5>
                     <p>SAIBA MAIS</p>
                 </div>
             </div>
         </div>
-        <div  className="botao-vistoria-home">
+        <div  className={styles.botaoVistoria}>
             <Link href="/dadosCliente"><button>
                 REALIZAR VISTORIA ONLINE
             </button></Link> 
         </div>
 
-        <div className="sobre-home" id="porto-seguro">
+        <div className={styles.sobreHome} id="porto-seguro">
             <h1>PORTO SEGURO</h1>
             <p>A Porto Seguro é uma empresa renomada no mercado de seguros, reconhecida pela sua qualidade e confiabilidade. Com mais de 70 anos de atuação, a empresa possui uma vasta gama de produtos que atendem às necessidades de seus clientes, desde seguros para automóveis e residências até seguros empresariais e de vida.
 A empresa se destaca pela sua capacidade de inovação, sempre buscando oferecer soluções diferenciadas e personalizadas para cada cliente. Além disso, a Porto Seguro conta com uma ampla rede de atendimento, que garante um atendimento rápido e eficiente em caso de sinistros.

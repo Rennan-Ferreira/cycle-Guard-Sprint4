@@ -1,98 +1,49 @@
-import {promises as fs} from 'fs';
+import { promises as fs } from 'fs';
 import { NextResponse } from 'next/server';
 
-export async function GET(request,{params}){
-    //Criando uma chamada para acessar o arquivo JSON que foi criado!!!
-    const file =  await fs.readFile(process.cwd() + "/src/app/api/base/db.json","utf8");
-
-    //Recuperando a lista de usuários do arquivo JSON, realizando um
-    //parse de arquivo para JSON.
-    const lista = await JSON.parse(file);
-    
-    //Retornando a lista de usuários para quem chamou o end-point.
+export async function GET(request, { params }) {
+    // Retorna a lista de usuários apenas para fins de teste
+    const file = await fs.readFile(process.cwd() + "/src/app/api/base/db.json", "utf8");
+    const lista = JSON.parse(file);
     return NextResponse.json(lista);
-
 }
 
-
-const handleLogin = async (email,senha)=>{
-    //Criando uma chamada para acessar e ler o arquivo JSON que foi criado!!!
-    const file =  await fs.readFile(process.cwd() + "/src/app/api/base/db.json","utf8");
-
-    //Recuperando a lista de usuários do arquivo JSON, realizando um
-    //parse de arquivo para JSON para tornar o arquivo um objeto manipulável.
-    const dados = await JSON.parse(file);
- 
-    //Realizando a validação do usuário através dos parâmetros recebidos:{email,senha}, onde vamos percorrer a lista de  e verificar se o usuário existe.
-
+const handleLogin = async (email, senha) => {
     try {
-        // for (let x = 0; x < lista.usuarios.length; x++) {
-        //     const userLista = lista.usuarios[x];
-        //     //Realizando a validação do usuário:
-        //     if(userLista.email == email && userLista.senha == senha){
-        //         //Retornando o status do request!
-        //         return true;
-        //     }
-        // }
-        const user = dados.usuarios.find((user)=>user.email == email && user.senha == senha);
-        
-        //Retornando o objeto do usuário encontrado, mesmo que seja null.
-        return user;
-    } catch (error) {
-        console.error(error);
-    }
-}
+        const file = await fs.readFile(process.cwd() + "/src/app/api/base/db.json", "utf8");
+        const dados = JSON.parse(file);
 
-//Criando a função POST para realizar o cadastramento de usuários:
-const handleCadastro = async (nome,email,senha)=>{
-    //Criando uma chamada para acessar e ler o arquivo JSON que foi criado!!!
-    const file =  await fs.readFile(process.cwd() + "/src/app/api/base/db.json","utf8");
+        const user = dados.usuarios.find((user) => user.email === email && user.senha === senha);
 
-    //Recuperando a lista de usuários do arquivo JSON, realizando um
-    //parse de arquivo para JSON para tornar o arquivo um objeto manipulável.
-    const lista = await JSON.parse(file);
- 
-    //Gerar um id para o novo usuário:
-    const id = lista.usuarios[lista.usuarios.length-1].id + 1;
-
-    //Criando o objeto do novo usuário:
-    const novoUsuario = {id,nome,email,senha};
-
-    //Adicionando o novo usuário na lista de usuários:
-    lista.usuarios.push(novoUsuario);
-
-    //Salvando a lista de usuários no arquivo JSON:
-    await fs.writeFile(process.cwd() + "/src/app/api/base/db.json",JSON.stringify(lista));
-
-    //Retornando o status do request!
-    return novoUsuario;
-
-}
-
-export async function POST(request, response){
-        
-        //Recuperando os dados da requisição:
-        //Realizando a desestruturação do objeto request.json() para recuperar os dados do request.
-        const {info,nome,email,senha} = await request.json();
-
-        //Determinando o status da operação:
-        switch (info) {
-            case "login":
-                //Realizando a chamada da função de login:
-                const user = await handleLogin(email,senha);
-                if(user){
-                    //Retornando o status do request!
-                    return NextResponse.json({"status":true,"user":user});
-                }
-            case "cadastro":
-                //Realizando a chamada da função de cadastro:
-                const novoUsuario = await handleCadastro(nome,email,senha);
-                if(novoUsuario){
-                    //Retornando o status do request!
-                    return NextResponse.json({"status":true,"user":novoUsuario});
-                }
-            default:
-                return NextResponse.json({status:false});
+        if (user) {
+            console.log(`Login bem-sucedido para o usuário: ${user.email}`);
+            return { status: true, user };
+        } else {
+            console.log(`Falha no login para o e-mail: ${email}`);
+            return { status: false, message: "Credenciais inválidas." };
         }
+    } catch (error) {
+        console.error("Erro durante o login:", error);
+        throw new Error("Erro interno durante o login.");
+    }
+};
 
+// Criando a função POST para realizar o login de usuários
+export async function POST(request, response) {
+    const { info, email, senha } = await request.json();
+
+    switch (info) {
+        case "login":
+            const user = await handleLogin(email, senha);
+            if (user.status) {
+                // Aqui, você pode adicionar informações adicionais ao objeto de resposta se necessário
+                return NextResponse.json({ "status": true, "user": user.user });
+            } else {
+                // Retornando uma resposta com status 401 (Unauthorized) para indicar falha no login
+                return NextResponse.json({ "status": false, "message": user.message }, { status: 401 });
+            }
+        default:
+            // Retornando uma resposta com status 400 (Bad Request) para indicar uma solicitação inválida
+            return NextResponse.json({ status: false, message: "Solicitação inválida." }, { status: 400 });
+    }
 }

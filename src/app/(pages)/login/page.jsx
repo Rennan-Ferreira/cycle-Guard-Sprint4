@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 export default function Login() {
     
+   
     const navigate = useRouter();
 
     const [usuario, setUsuario] = useState({
@@ -17,6 +18,7 @@ export default function Login() {
     const [classeMsg, setClasseMsg] = useState("");
 
     useEffect(() => {
+      
         if(msgStatus == "Login realizado com SUCESSO! Aguarde..."){
             setClasseMsg("login-sucesso");
         }else if(msgStatus == "Nome de usuário ou senha inválidos!"){
@@ -32,57 +34,61 @@ export default function Login() {
     setUsuario({...usuario,[name]:value});
     };
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+          const response = await fetch("http://localhost:3000/api/base/base-users", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(usuario)
+          });
+  
+          if (response.ok) {
+              const data = await response.json();
+              if (data.status) {
+                  setMsgStatus("Login realizado com SUCESSO! Aguarde...");
+  
+                  const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
+  
 
-        try {
-            const response = await fetch("http://localhost:3000/api/base/base-users",{
-                method: "POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:  JSON.stringify(usuario)
-            });
-
-            if(response.ok){
-                const data = await response.json();
-                if(data.status){
-                   setMsgStatus("Login realizado com SUCESSO! Aguarde...");
-
-                    const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
-
-                   sessionStorage.setItem("token-user",tokenUser);
-
-                    sessionStorage.setItem("user-obj",JSON.stringify(data.user));
-
-                   setTimeout(()=>{
-                    navigate.push("/homeDois");
-                   },5000);
-
-                }else{
-                    setMsgStatus("Nome de usuário ou senha inválidos!");
-                    
-                   setTimeout(()=>{
-                    setMsgStatus("");
-                    setUsuario({
-                        "email":"",
-                        "senha":""
-                    });
-                   },5000);
-                }
-            }
-            
-        } catch (error) {
-            console.log(error);
-        }
-        
-    };
-    
+                  sessionStorage.setItem("token-user", tokenUser);
+  
+                  
+                  sessionStorage.setItem("user-obj", JSON.stringify(data.user));
+  
+                  setTimeout(() => {
+                      navigate.push("/homeDois");
+                  }, 5000);
+  
+              } else {
+                  
+                  setMsgStatus("Nome de usuário ou senha inválidos!");
+  
+                  
+                  setTimeout(() => {
+                      setMsgStatus("");
+                      setUsuario({
+                          "email": "",
+                          "senha": ""
+                      });
+                  }, 5000);
+              }
+          } else {
+              
+              console.log("Erro na requisição:", response.statusText);
+          }
+      } catch (error) {
+          console.error("Erro durante a requisição:", error);
+      }
+  };
 
   return (
     <div className="tela-login">
       <div className="cliente-data-header"> 
-        <Link href='/home'>
+        <Link href='/homeDois'>
           <button className="cliente-back-button">&#8592; Voltar</button>
         </Link>
       </div>

@@ -52,7 +52,7 @@ export default function DadosBicicleta() {
                     </div>
                 </div>
                 <Link href="/cameraPage">
-                    <button type="submit">Continuar</button>
+                    <button type="submit" className={styles.botaoCadastrar}>Continuar</button>
                 </Link>
             </form>
         </div>

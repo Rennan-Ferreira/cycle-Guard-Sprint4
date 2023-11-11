@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-
+import styles from '../../../styles/cameraPage.module.css'
 const ObjectDetectionPage = () => {
   const [isDetectionStarted, setIsDetectionStarted] = useState(false);
 
@@ -42,19 +42,14 @@ const ObjectDetectionPage = () => {
   };
 
   return (
-    <div className='camera-page'>
-      <h1 className='titulo-camera'>Detecção de Objetos</h1>
-      <button
-        id="startButton"
-        onClick={handleStartDetection}
-        disabled={isDetectionStarted}
-        style={{ display: isDetectionStarted ? 'none' : 'block' }}
-      >
+    <div className={styles.cameraPage}>
+      <h1 className={styles.tituloCamera}>Detecção de Objetos</h1>
+      <button id="startButton" onClick={handleStartDetection} disabled={isDetectionStarted}  style={{ display: isDetectionStarted ? 'none' : 'block' }} className={styles.button}      >
         Iniciar Detecção
       </button>
       
-      <div className="webcam">
-        <img ref={videoRef} src="http://localhost:8000/video_feed" alt="Detecção de objetos" className='deteccao'/>
+      <div className={styles.webcam}>
+        <img ref={videoRef} src="http://localhost:8000/video_feed" alt="Detecção de objetos" className={styles.deteccao}/>
         <canvas ref={detectionsCanvasRef}></canvas>
       </div>
     </div>

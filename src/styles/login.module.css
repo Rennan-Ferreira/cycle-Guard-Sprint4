@@ -83,15 +83,18 @@
 .formLogin button:hover {
   background: linear-gradient(135deg, #0056b3, #007BFF);
 }
-
-.login-sucesso {
+.classeMsg{
+  justify-content: center;
+  align-items: center;
+}
+.loginSucesso {
   color: green;
 }
 
-.login-erro {
+.loginErro {
   color: red;
 }
 
-.login-none {
+.loginNone {
   display: none;
 }

@@ -21,11 +21,11 @@ export default function Login() {
     useEffect(() => {
       
         if(msgStatus == "Login realizado com SUCESSO! Aguarde..."){
-            setClasseMsg("login-sucesso");
+            setClasseMsg("loginSucesso");
         }else if(msgStatus == "Nome de usuário ou senha inválidos!"){
-            setClasseMsg("login-erro");
+            setClasseMsg("loginErro");
         }else{
-            setClasseMsg("login-none");
+            setClasseMsg("loginNone");
         }
 
     }, [msgStatus])
@@ -96,11 +96,12 @@ export default function Login() {
         </Link>
       </div>
         
-        <h2 className={classeMsg}>{msgStatus}</h2>
+        
 
 
         <div className={styles.formLogin}>
             <form onSubmit={handleSubmit}>
+            <h3 className={classeMsg}>{msgStatus}</h3>
                 <fieldset>
                     <legend>LOGIN</legend>
                     <div>

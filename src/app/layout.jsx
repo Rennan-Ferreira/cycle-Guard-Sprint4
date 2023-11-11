@@ -2,7 +2,7 @@ import "./globals.css";
 import "../styles/Cabecalho.module.css";
 import "../styles/Home.module.css"
 import "../styles/cadastro.module.css"
-import "../styles/cameraPage.css"
+import "../styles/cameraPage.module.css"
 import "../styles/login.module.css"
 import { Inter } from "next/font/google";
 

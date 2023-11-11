@@ -1,10 +1,10 @@
-.titulo-camera {
+.tituloCamera {
     display: flex;
     justify-content: center;
     color: black;
   }
   
-  button {
+  .button {
     padding: 2% 4%;
     font-size: 2vw;
     cursor: pointer;
@@ -15,7 +15,7 @@
     margin-top: 2%;
   }
   
-  .camera-page {
+  .cameraPage {
     display: flex;
     justify-content: center;
     flex-direction: column;

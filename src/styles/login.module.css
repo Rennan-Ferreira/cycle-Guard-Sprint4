@@ -28,7 +28,11 @@
 
 .loginHeader {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.senhaHeader {
+  text-align: right;
+  margin-bottom: 10px;
 }
 
 .formLogin {

@@ -117,6 +117,7 @@ export default function Login() {
                     </div>
                 </fieldset>
                 <h1 className={styles.loginHeader}>Ainda não possui conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
+                <h3 className={styles.senhaHeader}>Esqueceu a senha? <a href="/esqueceuSenha" className={styles.cadastro}>Clique aqui</a></h3>
 
             </form>
         </div>

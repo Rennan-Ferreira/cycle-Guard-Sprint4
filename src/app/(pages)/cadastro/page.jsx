@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
+import styles from '../../../styles/cadastro.module.css'
 
 export default function Cadastro() {
   const navigate = useRouter();
@@ -87,174 +88,65 @@ export default function Cadastro() {
   };
 
   return (
-    <div className="cliente-data-form">
-      <div className="cliente-data-header">
+    <div className={styles.cadastroForm}>
+      <div className={styles.cadastroHeader}>
         <Link href="/login">
-          <button className="cliente-back-button">&#8592; Voltar</button>
+          <button className={styles.cadastroBack}>&#8592; Voltar</button>
         </Link>
       </div>
 
-      <div className="cliente-form-container">
-        <form onSubmit={handleSubmit} className="forms" action="">
-          <div className="cliente-title">
+      <div className={styles.cadastroContainer}>
+        <form onSubmit={handleSubmit} className={styles.forms} action="">
+          <div className={styles.cadastroTitle}>
             <h2>INSIRA OS SEUS DADOS PARA REALIZAR O CADASTRO</h2>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="nome">
-              NOME
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Nome"
-                required
-                value={formData.nome}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="nome">  NOME <input type="text" id="nome" name="nome" placeholder="Nome" required value={formData.nome} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="email">
-              EMAIL
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="email"> EMAIL<input type="text" id="email" name="email" placeholder="Email" required value={formData.email} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="senha">
-              SENHA
-              <input
-                type="password"
-                id="senha"
-                name="senha"
-                placeholder="Senha"
-                required
-                value={formData.senha}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="senha">  SENHA<input type="password" id="senha" name="senha" placeholder="Senha" required value={formData.senha} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="telefone">
-              TELEFONE
-              <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                placeholder="Telefone"
-                required
-                value={formData.telefone}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="telefone">  TELEFONE  <input type="text" id="telefone" name="telefone" placeholder="Telefone" required value={formData.telefone} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="cpf">
-              CPF
-              <input
-                type="text"
-                id="cpf"
-                name="cpf"
-                placeholder="CPF"
-                required
-                value={formData.cpf}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="cpf">  CPF <input type="text" id="cpf" name="cpf" placeholder="CPF" required value={formData.cpf} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="idade">
-              IDADE
-              <input
-                type="text"
-                id="idade"
-                name="idade"
-                placeholder="Idade"
-                required
-                value={formData.idade}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="idade"> IDADE <input type="text" id="idade" name="idade" placeholder="Idade" required value={formData.idade} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="cep">
-              CEP
-              <input
-                type="text"
-                id="cep"
-                name="cep"
-                placeholder="CEP"
-                required
-                value={formData.cep}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="cep"> CEP
+              <input type="text" id="cep" name="cep" placeholder="CEP" required value={formData.cep} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="endereco">
-              ENDEREÇO
-              <input
-                type="text"
-                id="endereco"
-                name="endereco"
-                placeholder="Endereço"
-                required
-                value={formData.endereco}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="endereco"> ENDEREÇO <input type="text" id="endereco" name="endereco" placeholder="Endereço" required value={formData.endereco} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="estado">
-              ESTADO
-              <input
-                type="text"
-                id="estado"
-                name="estado"
-                placeholder="Estado"
-                required
-                value={formData.estado}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="estado">  ESTADO <input type="text" id="estado" name="estado" placeholder="Estado" required value={formData.estado} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="complemento">
-              COMPLEMENTO
-              <input
-                type="text"
-                id="complemento"
-                name="complemento"
-                placeholder="Complemento"
-                required
-                value={formData.complemento}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="complemento">  COMPLEMENTO <input type="text" id="complemento" name="complemento" placeholder="Complemento" required value={formData.complemento} onChange={handleChange} />
             </label>
           </div>
-          <div className="cliente-form-group">
-            <label htmlFor="numero">
-              NÚMERO
-              <input
-                type="text"
-                id="numero"
-                name="numero"
-                placeholder="Número"
-                required
-                value={formData.numero}
-                onChange={handleChange}
-              />
+          <div className={styles.cadastroGroup}>
+            <label htmlFor="numero">  NÚMERO<input type="text" id="numero" name="numero" placeholder="Número" required value={formData.numero} onChange={handleChange} />
             </label>
           </div>
-          <div className="div-botao-cadastro">
-            <button type="submit" disabled={loading} className="cliente-cadastro">
+          <div className={styles.cadastroBotao}>
+            <button type="submit" disabled={loading} className={styles.cadastro}>
               {loading ? 'Aguarde...' : 'CADASTRAR'}
             </button>
           </div>

@@ -101,48 +101,48 @@ export default function Cadastro() {
             <h2>INSIRA OS SEUS DADOS PARA REALIZAR O CADASTRO</h2>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="nome">  NOME <input type="text" id="nome" name="nome" placeholder="Nome" required value={formData.nome} onChange={handleChange} />
+            <label htmlFor="nome">  NOME <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required value={formData.nome} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="email"> EMAIL<input type="text" id="email" name="email" placeholder="Email" required value={formData.email} onChange={handleChange} />
+            <label htmlFor="email"> EMAIL<input type="text" id="email" name="email" placeholder="Digite seu Email" required value={formData.email} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="senha">  SENHA<input type="password" id="senha" name="senha" placeholder="Senha" required value={formData.senha} onChange={handleChange} />
+            <label htmlFor="senha">  SENHA<input type="password" id="senha" name="senha" placeholder="Digite seu Senha" required value={formData.senha} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="telefone">  TELEFONE  <input type="text" id="telefone" name="telefone" placeholder="Telefone" required value={formData.telefone} onChange={handleChange} />
+            <label htmlFor="telefone">  TELEFONE  <input type="text" id="telefone" name="telefone" placeholder="Digite seu Telefone" required value={formData.telefone} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="cpf">  CPF <input type="text" id="cpf" name="cpf" placeholder="CPF" required value={formData.cpf} onChange={handleChange} />
+            <label htmlFor="cpf">  CPF <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required value={formData.cpf} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="idade"> IDADE <input type="text" id="idade" name="idade" placeholder="Idade" required value={formData.idade} onChange={handleChange} />
+            <label htmlFor="idade"> IDADE <input type="text" id="idade" name="idade" placeholder="Digite seu Idade" required value={formData.idade} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
             <label htmlFor="cep"> CEP
-              <input type="text" id="cep" name="cep" placeholder="CEP" required value={formData.cep} onChange={handleChange} />
+              <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" required value={formData.cep} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="endereco"> ENDEREÇO <input type="text" id="endereco" name="endereco" placeholder="Endereço" required value={formData.endereco} onChange={handleChange} />
+            <label htmlFor="endereco"> ENDEREÇO <input type="text" id="endereco" name="endereco" placeholder="Digite seu Endereço" required value={formData.endereco} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="estado">  ESTADO <input type="text" id="estado" name="estado" placeholder="Estado" required value={formData.estado} onChange={handleChange} />
+            <label htmlFor="estado">  ESTADO <input type="text" id="estado" name="estado" placeholder="Digite seu Estado" required value={formData.estado} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="complemento">  COMPLEMENTO <input type="text" id="complemento" name="complemento" placeholder="Complemento" required value={formData.complemento} onChange={handleChange} />
+            <label htmlFor="complemento">  COMPLEMENTO <input type="text" id="complemento" name="complemento" placeholder="Digite seu Complemento" required value={formData.complemento} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroGroup}>
-            <label htmlFor="numero">  NÚMERO<input type="text" id="numero" name="numero" placeholder="Número" required value={formData.numero} onChange={handleChange} />
+            <label htmlFor="numero">  NÚMERO<input type="text" id="numero" name="numero" placeholder="Digite seu Número" required value={formData.numero} onChange={handleChange} />
             </label>
           </div>
           <div className={styles.cadastroBotao}>

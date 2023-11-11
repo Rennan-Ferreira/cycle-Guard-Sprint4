@@ -1,9 +1,9 @@
 import "./globals.css";
 import "../styles/Cabecalho.module.css";
-import "../styles/Home.css"
+import "../styles/Home.module.css"
 import "../styles/cadastro.css"
 import "../styles/cameraPage.css"
-import "../styles/login.css"
+import "../styles/login.module.css"
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });

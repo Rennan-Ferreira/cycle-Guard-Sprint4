@@ -1,0 +1,97 @@
+
+.telaLogin {
+  background: linear-gradient(180deg, rgb(166, 225, 250) 0%, rgb(10, 36, 114) 100%);
+    background-color: rgba(255, 255, 255, 1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
+}
+
+.loginButton{
+  background-color: rgb(166, 225, 250);
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 100px;
+}
+
+.cadastro {
+  font-size: 16px;
+  color: #000000;
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formLogin {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; 
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.formLogin legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.formLogin label {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.formLogin input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.formLogin button {
+  background: linear-gradient(135deg, #007BFF, #00BFFF);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.formLogin button:hover {
+  background: linear-gradient(135deg, #0056b3, #007BFF);
+}
+
+.login-sucesso {
+  color: green;
+}
+
+.login-erro {
+  color: red;
+}
+
+.login-none {
+  display: none;
+}

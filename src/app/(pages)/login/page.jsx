@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from 'next/link';
+import styles from '../../../styles/login.module.css'
 
 export default function Login() {
     
@@ -80,18 +81,17 @@ export default function Login() {
     
 
   return (
-    <div className="tela-login">
-      <div className="cliente-data-header"> 
+    <div className={styles.telaLogin}>
+      <div className={styles.LoginHeader}> 
         <Link href='/home'>
-          <button className="cliente-back-button">&#8592; Voltar</button>
+          <button className={styles.loginButton}>&#8592; Voltar</button>
         </Link>
       </div>
-        <h1 className="header-cadastro">AINDA NÃO POSSUI CONTA?<br></br> <a href="/cadastro" className="cadastro">Clique aqui para cadastrar-se</a></h1>
-
+        
         <h2 className={classeMsg}>{msgStatus}</h2>
 
 
-        <div className="form-login">
+        <div className={styles.formLogin}>
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>LOGIN</legend>
@@ -107,6 +107,8 @@ export default function Login() {
                         <button>LOGIN</button> 
                     </div>
                 </fieldset>
+                <h1 className={styles.loginHeader}>Ainda não possui conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
+
             </form>
         </div>
     </div>

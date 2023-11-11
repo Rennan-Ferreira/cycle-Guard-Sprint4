@@ -58,6 +58,17 @@ export default function DadosBicicleta() {
             setErrorMessages({ ...errorMessages, modelo: 'Modelo inválido' });
         }
     };
+    const handleMaterialChange = (e) => {
+        const value = e.target.value;
+        setFormValues({ ...formValues, material: value });
+
+        if (/^[A-Za-z]{3,}$/.test(value) || value === '') {
+            setErrorMessages({ ...errorMessages, material: '' });
+        } else {
+            setErrorMessages({ ...errorMessages, material: 'Modelo inválido' });
+        }
+    };
+
 
     const handleNumeroSerieChange = (e) => {
         const value = e.target.value;
@@ -137,8 +148,9 @@ export default function DadosBicicleta() {
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="material">Material:</label>
-                        <input type="text" id="material" name="material" value={formValues.material} onChange={(e) => setFormValues({ ...formValues, material: e.target.value })} required />
-                    </div>
+                        <input type="text" id="material" name="material" value={formValues.material} onChange={handleMaterialChange} required />
+                        {errorMessages.material && <p className={styles.errorText}>{errorMessages.material}</p>}
+                      </div>
                 </div>
                 <div className={styles.formSection2}>
                     <div className={styles.formGroup}>

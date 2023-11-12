@@ -2,6 +2,48 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Para rodar a aplicação que permite ao usuário fazer o reconhecimento da bicicleta para vistoria, é preciso realizar os seguintes passos:
+No prompt de comando, executar o seguinte comando: cd testeDeIntegração
+
+Em seguida, fazer as seguintes instalações:
+npm install axios
+pip install fastapi uvicorn
+pip install fastapi
+pip install opencv-python
+
+Após as instalações serem concluidas com sucesso, rodar a aplicação também no prompt de comando:
+py app.py
+
+Caso queira testar a aplicação usando a sua webcam, altere o seguinte trecho de código no arquivo app.py:
+def start_detection_route():
+    global video_capture, model, detection_running
+    if not detection_running:
+        video_capture = cv2.VideoCapture(0) # Aqui é substituido o caminho do vídeo pelo 0, que refere-se a webcam.
+        net = cv2.dnn.readNet("yoloV4-tiny.weights", "yoloV4-tiny.cfg")
+        model = cv2.dnn_DetectionModel(net)
+        model.setInputParams(size=(416, 416), scale=1/255)
+        detection_running = True
+        t = threading.Thread(target=start_detection)
+        t.daemon = True
+        t.start()
+    return {"status": "Detection started"}
+
+obs: é necessário executar o py app.py novamente após a alteração ser feita.
+=========================================================================================================================================
+
+É necessário fazer a instalação do input-mask, pois o mesmo está sendo utilizado nos forms para validação das informações. 
+Após ter feito o "npm install" no prompt de comando, execute o seguinte comando: "npm i react-input-mask".
+=========================================================================================================================================
+
+Para validação do usuário na tela de login, entrar com as seguintes credenciais:
+email: cycleGuard@fiap.com
+senha": 12345678
+=========================================================================================================================================
+
+Para teste da API da disciplina Domain Driven Design, segue o repositório com o projeto e orientações de funcionamento:
+https://github.com/jaisycibele/ProjetoCycleGuard.git
+
+=========================================================================================================================================
 First, run the development server:
 
 ```bash

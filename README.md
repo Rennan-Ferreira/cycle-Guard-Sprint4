@@ -18,8 +18,7 @@ Caso queira testar a aplicação usando a sua webcam, altere o seguinte trecho d
 def start_detection_route():
     global video_capture, model, detection_running
     if not detection_running:
-        video_capture = cv2.VideoCapture(0) # Aqui é substituido o caminho do vídeo pelo 0, que refere-se a webcam.
-        net = cv2.dnn.readNet("yoloV4-tiny.weights", "yoloV4-tiny.cfg")
+        video_capture = cv2.VideoCapture(0) 
         model = cv2.dnn_DetectionModel(net)
         model.setInputParams(size=(416, 416), scale=1/255)
         detection_running = True

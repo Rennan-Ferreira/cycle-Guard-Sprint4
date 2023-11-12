@@ -13,29 +13,27 @@ export default function HomeDois() {
 
         <div className={styles.containerSeguros}>
             <div className={styles.imgSeguros}>
-            <Image src="/img/img-pedal-essencial.png" alt="seguro essencial" width={100} height={100} />
-            <Image src="/img/img-pedal-leve.png" alt="seguro leve" width={100} height={100} />
-            <Image src="/img/img-pedal-elite.png" alt="seguro elite" width={100} height={100} />
+            <Link href="/login"><Image src="/img/img-pedal-essencial.png" alt="seguro essencial" width={500} height={272} /></Link>
+            <Link href="/login"><Image src="/img/img-pedal-leve.png" alt="seguro leve"  width={500} height={272} /></Link>
+            <Link href="/login"><Image src="/img/img-pedal-elite.png" alt="seguro elite"  width={500} height={272} /></Link>
             </div>
             <div className={styles.titulosSeguros}>
-                <div className={styles.pedalEssencial}>
+                <Link href="/login"><div className={styles.pedalEssencial}>
                     <h5>PEDAL ESSENCIAL</h5>
                     <p>SAIBA MAIS</p>
-                </div>
-                <div className={styles.pedalLeve}>
+                </div></Link>
+                <Link href="/login"><div className={styles.pedalLeve}>
                     <h5>PEDAL LEVE</h5>
                     <p>SAIBA MAIS</p>
-                </div>
-                <div className={styles.pedalElite}>
+                </div></Link>
+                <Link href="/login"><div className={styles.pedalElite}>
                     <h5>PEDAL ELITE</h5>
                     <p>SAIBA MAIS</p>
-                </div>
+                </div></Link>
             </div>
         </div>
         <div  className={styles.botaoVistoria}>
-            <Link href="/dadosCliente"><button>
-                REALIZAR VISTORIA ONLINE
-            </button></Link> 
+            <Link href="/dadosCliente"><button>REALIZAR VISTORIA ONLINE</button></Link> 
         </div>
 
         <div className={styles.sobreHome} id="porto-seguro">

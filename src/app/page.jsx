@@ -14,13 +14,11 @@ export default function Home() {
 
                 <div className={styles.containerSeguros}>
                     <div className={styles.imgSeguros}>
-                        <img src="/img/img-pedal-essencial.png" alt="seguro essencial" />
-                        <img src="/img/img-pedal-leve.png" alt="seguro leve" />
-                        <img src="/img/img-pedal-elite.png" alt="seguro elite" />
+                    <Link href="/login"><Image src="/img/img-pedal-essencial.png" alt="seguro essencial"  width={500} height={272} /></Link>
+                    <Link href="/login"><Image src="/img/img-pedal-leve.png" alt="seguro leve"  width={500} height={272} /></Link>
+                    <Link href="/login"><Image src="/img/img-pedal-elite.png" alt="seguro elite"  width={500} height={272} /></Link>
                     </div>
-
                     <div className={styles.titulosSeguros}>
-
                         <Link href="/login"><div className={styles.pedalEssencial}>
                             <h5>PEDAL ESSENCIAL</h5>
                             <p>SAIBA MAIS</p>

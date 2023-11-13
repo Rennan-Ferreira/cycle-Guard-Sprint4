@@ -6,8 +6,14 @@ import styles from '../../../styles/login.module.css'
 
 export default function Login() {
     
-   
-    const navigate = useRouter();
+    const router = useRouter();
+
+  
+  const handleBackClick = () => {
+    router.push("/").then(() => {
+      setIsVistoria(false);
+    });
+  }
 
     const router = useRouter();
 
@@ -39,13 +45,27 @@ export default function Login() {
 
     }, [msgStatus])
           
-    const handleChange = async (e)=>{
-        const {name, value} = e.target;
-    setUsuario({...usuario,[name]:value});
+    const handleChange = async (e) => {
+        const { name, value } = e.target;
+        setUsuario({ ...usuario, [name]: value });
+        if (name === "email" || name === "senha") {
+            setMsgStatus("");
+        }
     };
+    
 
     const handleSubmit = async (e) => {
       e.preventDefault();
+   
+    if (!usuario.email.includes('@') || !usuario.email.includes('.com')) {
+        setMsgStatus("Email inválido. Deve conter '@' e '.com'.");
+        return;
+    }
+
+    if (usuario.senha.length < 8) {
+        setMsgStatus("Senha deve ter pelo menos 8 caracteres.");
+        return;
+    }
   
       try {
           const response = await fetch("http://localhost:3000/api/base/base-users", {
@@ -93,7 +113,10 @@ export default function Login() {
       } catch (error) {
           console.error("Erro durante a requisição:", error);
       }
+      
   };
+
+  
 
   return (
 
@@ -101,9 +124,6 @@ export default function Login() {
       <div className={styles.LoginHeader}> 
       <button className={styles.loginButton} onClick={handleBackClick}>&#8592; Voltar</button>
       </div>
-        
-        
-
 
         <div className={styles.formLogin}>
             <form onSubmit={handleSubmit}>
@@ -112,18 +132,18 @@ export default function Login() {
                     <legend>LOGIN</legend>
                     <div>
                         <label htmlFor="idEmail">Email</label>
-                        <input type="email" name="email" id="idEmail" placeholder="Digite seu Email." value={usuario.email} onChange={handleChange}/>
+                        <input type="email" name="email" id="idEmail" placeholder="Digite seu Email." value={usuario.email} onChange={handleChange} required/>
                     </div>
                     <div>
                         <label htmlFor="idSenha">Senha</label>
-                        <input type="password" name="senha" id="idSenha" placeholder="Digite sua Senha." value={usuario.senha} onChange={handleChange}/>
+                        <input type="password" name="senha" id="idSenha" placeholder="Digite sua Senha." value={usuario.senha} onChange={handleChange}required/>
                     </div>
                     <div>
                         <button>LOGIN</button> 
                     </div>
                 </fieldset>
-                <h1 className={styles.loginHeader}>Ainda não possui conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
-                <h3 className={styles.senhaHeader}>Esqueceu a senha? <a href="/esqueceuSenha" className={styles.cadastro}>Clique aqui</a></h3>
+                <h1 className={styles.loginHeader}>Ainda não possui uma conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
+                <h3 className={styles.senhaHeader}>Esqueceu a sua senha? <a href="/esqueceuSenha" className={styles.cadastro}>Clique aqui</a></h3>
 
             </form>
         </div>

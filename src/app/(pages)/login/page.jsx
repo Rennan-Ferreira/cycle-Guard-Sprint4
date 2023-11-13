@@ -9,6 +9,15 @@ export default function Login() {
    
     const navigate = useRouter();
 
+    const router = useRouter();
+
+
+    const handleBackClick = () => {
+        router.push("/").then(() => {
+        setIsVistoria(false);
+        });
+    }
+
     const [usuario, setUsuario] = useState({
         "info": "login",
         "email" : "",
@@ -90,10 +99,7 @@ export default function Login() {
 
     <div className={styles.telaLogin}>
       <div className={styles.LoginHeader}> 
-        <Link href='/homeDois'>
-          <button className={styles.loginButton}>&#8592; Voltar</button>
-
-        </Link>
+      <button className={styles.loginButton} onClick={handleBackClick}>&#8592; Voltar</button>
       </div>
         
         

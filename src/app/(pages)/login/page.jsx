@@ -133,8 +133,8 @@ export default function Login() {
                         <button>LOGIN</button> 
                     </div>
                 </fieldset>
-                <h1 className={styles.loginHeader}>Ainda não possui conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
-                <h3 className={styles.senhaHeader}>Esqueceu a senha? <a href="/esqueceuSenha" className={styles.cadastro}>Clique aqui</a></h3>
+                <h1 className={styles.loginHeader}>Ainda não possui uma conta? <a href="/cadastro" className={styles.cadastro}>Clique aqui para cadastrar-se</a></h1>
+                <h3 className={styles.senhaHeader}>Esqueceu a sua senha? <a href="/esqueceuSenha" className={styles.cadastro}>Clique aqui</a></h3>
 
             </form>
         </div>

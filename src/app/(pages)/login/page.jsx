@@ -1,19 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import Link from 'next/link';
 import styles from '../../../styles/login.module.css'
 
 export default function Login() {
-    
-    const router = useRouter();
-
-  
-  const handleBackClick = () => {
-    router.push("/").then(() => {
-      setIsVistoria(false);
-    });
-  }
 
     const router = useRouter();
 

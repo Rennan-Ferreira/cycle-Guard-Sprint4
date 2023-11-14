@@ -1,19 +1,31 @@
+import Link from 'next/link'
+import styles from '../../../styles/login.module.css'
 export default function EsqueceuSenha() {
-  return (
-    <body class="body-recuperar">
-        <div class="bloco">
-            <div class="txt-recuperar">
-                <h1>RECUPERAÇÃO DE SENHA</h1>
+    return (
+
+        <div className={styles.telaLogin}>
+            <div className={styles.LoginHeader}>
+                <Link href='/login'>
+                    <button className={styles.loginButton}>&#8592; Voltar</button>
+
+                </Link>
             </div>
-            <div class="input-recuperar">
-                <label for="">
-                    E-mail
-                    <input class="input-email" type="text" placeholder="email"/>
-                </label>
+            <div className={styles.formLogin}>
+                <form>
+                    <fieldset>
+                        <legend>Esqueceu a senha?</legend>
+                        <div>
+                            <label htmlFor="idEmail">Email</label>
+                            <input type="email" name="email" id="idEmail" placeholder="Digite seu Email." />
+                        </div>
+                        <div>
+                            <Link href='/login'>
+                                <button>Enviar</button>
+                            </Link>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
-            <button class="botao-recuperar"  id="enviarBotao">ENVIAR</button>
-            
         </div>
-    </body>
-  )
+    )
 }

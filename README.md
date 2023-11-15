@@ -34,6 +34,16 @@ obs: é necessário executar o py app.py novamente após a alteração ser feita
 Após ter feito o "npm install" no prompt de comando, execute o seguinte comando: "npm i react-input-mask".
 =========================================================================================================================================
 
+Credenciais do Banco de Dados:
+User: rm552260
+Password: 290404
+Hostname: oracle.fiap.com.br
+Port: 1521
+Sid: ORCL
+
+Para testar se as informações estão sendo inseridas no banco, fazer a seguinte consulta: SELECT * from Cliente
+=========================================================================================================================================
+
 Para validação do usuário na tela de login, entrar com as seguintes credenciais:
 email: cycleGuard@fiap.com
 senha": 12345678

@@ -3,10 +3,9 @@ import Link from 'next/link';
 import styles from '../../../styles/cadastro.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import ReactInputMask from 'react-input-mask';
 
 export default function Cadastro() {
-  const [formValues, setFormValues] = useState({
+  const [formData, setFormData] = useState({
     nome: '',
     email: '',
     senha: '',
@@ -20,102 +19,69 @@ export default function Cadastro() {
     numero: '',
   });
 
-  const [errorMessages, setErrorMessages] = useState({
-    nome: '',
-    email: '',
-    senha: '',
-    telefone: '',
-    cpf: '',
-    idade: '',
-    cep: '',
-    endereco: '',
-    estado: '',
-    complemento: '',
-    numero: '',
-  });
+  const navigate = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  const router = useRouter();
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const hasErrors = Object.values(errorMessages).some((message) => message !== '');
-    if (!hasErrors) {
-      console.log('Dados do formulário:', formValues);
-      router.push('/cameraPage');
-    } else {
-      alert('Por favor, corrija os campos com erros antes de continuar.');
+
+    try {
+      setLoading(true);
+
+      const requestBody = {
+        nome: formData.nome,
+        email: formData.email,
+        senha: formData.senha,
+        telefone: formData.telefone,
+        cpf: formData.cpf,
+        idade: formData.idade,
+        cep: formData.cep,
+        endereco: formData.endereco,
+        estado: formData.estado,
+        complemento: formData.complemento,
+        numero: formData.numero,
+      };
+
+      const apiResponse = await fetch('http://localhost:8080/ProjetoCycleGuard/rest/Cliente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (apiResponse.ok) {
+        console.log('Requisição enviada com sucesso!');
+        navigate.push('/homeDois');
+      } else {
+        console.error('Erro na chamada da API Java:', apiResponse.statusText);
+        console.log('Corpo da resposta:', await apiResponse.text());
+
+        try {
+          const errorDetails = await apiResponse.json();
+          console.error('Detalhes do erro:', errorDetails);
+        } catch (jsonError) {
+          console.error('Erro ao ler detalhes do erro:', jsonError.message);
+        }
+      }
+    } catch (error) {
+      console.error('Erro ao conectar com a API Java:', error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prevData) => ({ ...prevData, [name]: value }));
-    setErrorMessages({ ...errorMessages, [name]: '' });
 
+    const numericValue = value.replace(/\D/g, '');
 
-    if (name === 'nome') {
-      if (value.length < 3 || /\d/.test(value)) {
-        setErrorMessages({ ...errorMessages, [name]: 'Nome inválido' });
-      }
-    }
+    const formattedCPF = numericValue.padStart(11, '0');
 
-    if (name === 'email') {
-      if (!value.includes('@') || !value.includes('.com')) {
-        setErrorMessages({ ...errorMessages, [name]: 'Email inválido. Deve conter "@" e ".com"' });
-      }
-    }
-
-    if (name === 'senha') {
-      if (value.length < 8) {
-        setErrorMessages({ ...errorMessages, [name]: 'Senha deve ter pelo menos 8 caracteres' });
-      }
-    }
-  
-
-    if (name === 'telefone') {
-      if (!value.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
-        setErrorMessages({ ...errorMessages, [name]: 'Telefone inválido. Use o formato (XX) XXXXX-XXXX' });
-      }
-    }
-
-    if (name === 'cpf') {
-      if (!value.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
-        setErrorMessages({ ...errorMessages, [name]: 'CPF inválido. Use o formato XXX.XXX.XXX-XX' });
-      }
-    }
-
-    if (name === 'endereco') {
-      if (value.length < 3) {
-        setErrorMessages({ ...errorMessages, [name]: 'Endereço deve ter pelo menos 3 caracteres' });
-      }
-    }
-
-    if (name === 'estado') {
-      if (!value.match(/^[A-Za-z]{2}$/)) {
-        setErrorMessages({ ...errorMessages, [name]: 'Estado inválido. Use duas letras' });
-      }
-    }
-
-    if (name === 'numero') {
-      if (!value.match(/^\d{0,5}$/)) {
-        setErrorMessages({ ...errorMessages, [name]: 'Número inválido. No máximo 5 dígitos' });
-      }
-    }
- 
-  if (name === 'cep') {
-    if (!value.match(/^\d{5}-\d{3}$/)) {
-      setErrorMessages({ ...errorMessages, [name]: 'CEP inválido. Use o formato XXXXX-XXX' });
-    }
-  }
-  if (name === 'idade') {
-    if (!/^\d+$/.test(value) || parseInt(value, 10) < 18) {
-      setErrorMessages({ ...errorMessages, [name]: 'Idade inválida. Restrição: maior de idade' });
-    } else {
-      setErrorMessages({ ...errorMessages, [name]: '' }); 
-    }
-  }
- 
-   
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: name === 'cpf' ? parseInt(formattedCPF, 10) : value,
+    }));
   };
 
   return (
@@ -133,41 +99,36 @@ export default function Cadastro() {
         <div className={styles.cadastroGroup}>
           <div className={styles.column}>
             <label htmlFor="nome">NOME:</label>
-            <input type="text" id="nome" name="nome" value={formValues.nome} onChange={handleChange} required />
-            {errorMessages.nome && <p className={styles.errorText}>{errorMessages.nome}</p>}
+            <input type="text" id="nome" name="nome" value={formData.nome} onChange={handleChange} required />
             <label htmlFor="email">EMAIL:</label>
-            <input type="text" id="email" name="email" value={formValues.email} onChange={handleChange} required />
-            {errorMessages.email && <p className={styles.errorText}>{errorMessages.email}</p>}
+            <input type="text" id="email" name="email" value={formData.email} onChange={handleChange} required />
             <label htmlFor="senha">SENHA:</label>
-            <input type="password" id="senha" name="senha" value={formValues.senha} onChange={handleChange} required />
-            {errorMessages.senha && <p className={styles.errorText}>{errorMessages.senha}</p>}
+            <input type="password" id="senha" name="senha" value={formData.senha} onChange={handleChange} required />
             <label htmlFor="telefone">TELEFONE:</label>
-            <ReactInputMask mask="(99) 99999-9999" type="text" id="telefone" name="telefone" value={formValues.telefone} onChange={handleChange} required />
-            {errorMessages.telefone && <p className={styles.errorText}>{errorMessages.telefone}</p>}
+            <input type="text" id="telefone" name="telefone" value={formData.telefone} onChange={handleChange} required />
             <label htmlFor="cpf">CPF:</label>
-            <ReactInputMask mask="999.999.999-99" type="text" id="cpf" name="cpf" value={formValues.cpf} onChange={handleChange} required />
-            {errorMessages.cpf && <p className={styles.errorText}>{errorMessages.cpf}</p>}
+            <input mask="999.999.999-99" type="text" id="cpf" name="cpf" value={formData.cpf} onChange={handleChange} required />
           </div>
           <div className={styles.column}>
             <label htmlFor="idade">IDADE:</label>
-            <input type="text" id="idade" name="idade" value={formValues.idade} onChange={handleChange} required />
-            {errorMessages.idade && <p className={styles.errorText}>{errorMessages.idade}</p>}
+            <input type="text" id="idade" name="idade" value={formData.idade} onChange={handleChange} required />
            <label htmlFor="cep">CEP:</label>
-            <ReactInputMask mask="99999-999" type="text" id="cep" name="cep" value={formValues.cep} onChange={handleChange} required />
-            {errorMessages.cep && <p className={styles.errorText}>{errorMessages.cep}</p>}
+            <input mask="99999-999" type="text" id="cep" name="cep" value={formData.cep} onChange={handleChange} required />
              <label htmlFor="estado">ESTADO:</label>
-            <input type="text" id="estado" name="estado" value={formValues.estado} onChange={handleChange} required />
-            {errorMessages.estado && <p className={styles.errorText}>{errorMessages.estado}</p>}
+            <input type="text" id="estado" name="estado" value={formData.estado} onChange={handleChange} required />
+            <div className={styles.column}>
+            <label htmlFor="endereco">ENDEREÇO</label>
+              <input type="text" id="endereco" name="endereco" required value={formData.endereco} onChange={handleChange} />
+            </div>
             <label htmlFor="complemento">COMPLEMENTO:</label>
-            <input type="text" id="complemento" name="complemento" value={formValues.complemento} onChange={handleChange} />
+            <input type="text" id="complemento" name="complemento" value={formData.complemento} onChange={handleChange} />
             <label htmlFor="numero">NÚMERO:</label>
-            <input type="text" id="numero" name="numero" value={formValues.numero} onChange={handleChange} />
-            {errorMessages.numero && <p className={styles.errorText}>{errorMessages.numero}</p>}
+            <input type="text" id="numero" name="numero" value={formData.numero} onChange={handleChange} />
           </div>
         </div>
         <div className={styles.cadastroBotao}>
-          <button type="submit" className={styles.cadastro}>
-            Cadastrar
+          <button type="submit" disabled={loading} className={styles.cadastro}>
+          {loading ? 'Aguarde...' : 'CADASTRAR'}
           </button>
         </div>
       </form>
